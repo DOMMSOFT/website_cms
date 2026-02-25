@@ -1,0 +1,17 @@
+# Environment variables (secrets)
+.env
+
+# Uploads (managed by Directus)
+uploads/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Docker volumes
+db_data/
+
+# Logs
+*.log
