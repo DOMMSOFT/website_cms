@@ -1,7 +1,12 @@
-FROM directus/directus:latest
+FROM directus/directus:11.15.4
 
-# Exemple : ajouter une extension
-# COPY extensions /directus/extensions
+# Copy custom extensions if any
+# COPY ./extensions /directus/extensions
 
-# Installer dépendances si nécessaire
-# RUN npm install ...
+# Install additional npm dependencies if needed
+# USER root
+# RUN corepack enable && corepack prepare pnpm@latest --activate \
+#     && pnpm install some-package
+# USER node
+
+# Healthcheck defined in docker-compose.yaml for easier configuration

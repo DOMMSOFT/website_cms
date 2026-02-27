@@ -1,6 +1,7 @@
 services:
   database:
-    image: postgres:15
+    image: postgres:15.12
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${DB_DATABASE}
       POSTGRES_USER: ${DB_USER}
@@ -15,6 +16,7 @@ services:
 
   directus:
     build: .
+    restart: unless-stopped
     environment:
       - SERVICE_FQDN_DIRECTUS=${PUBLIC_URL}
     ports:
