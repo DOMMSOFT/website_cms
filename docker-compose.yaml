@@ -19,9 +19,9 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      - SERVICE_FQDN_DIRECTUS=${PUBLIC_URL}
+      - SERVICE_FQDN_DIRECTUS_8055=${PUBLIC_URL}
     ports:
-      - "${PORT:-8055}:${PORT:-8055}"
+      - "8055:8055"
     env_file:
       - .env
     depends_on:
@@ -30,7 +30,7 @@ services:
     volumes:
       - ./uploads:/directus/uploads
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:${PORT:-8055}/server/health || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8055/server/health || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
