@@ -20,7 +20,7 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      - SERVICE_FQDN_DIRECTUS_8055=${PUBLIC_URL}
+      - SERVICE_FQDN_DIRECTUS_8055
     ports:
       - "8055:8055"
     env_file:
