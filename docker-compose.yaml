@@ -28,12 +28,6 @@ services:
         condition: service_healthy
     volumes:
       - ./uploads:/directus/uploads
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:8055/server/health || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
 
 volumes:
   db_data:
