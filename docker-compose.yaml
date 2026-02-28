@@ -19,10 +19,8 @@ services:
   directus:
     build: .
     restart: unless-stopped
-    environment:
-      - SERVICE_FQDN_DIRECTUS_8055
     ports:
-      - "8055:8055"
+      - "127.0.0.1:8055:8055"
     env_file:
       - .env
     depends_on:
